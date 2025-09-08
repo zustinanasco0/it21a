@@ -7,7 +7,9 @@ output:process.stdout
 
 } )
  
-
+function mainMenu() { 
+    
+}
 
 console.log("Factorial Application") ;
 
@@ -21,7 +23,42 @@ rl.question("Enter your choice (1-3)" , choice => {
         console.log("Hello there");
     } else if (choice=="2"){
         console.log("Compute factorial");   
-  rl.question("Enter a number for factorial: ", (numStr) => { 
+    rl.question("Enter a number for factorial: ", (numStr) => { 
+     let num = parseInt(numStr) ;
+
+     if(isNaN(num) || num<0) { 
+         console.log("Please enter a non negative integer") ;
+  
+     } else { 
+   
+         let fact = 1 ;
+
+          for (let i = 1; i <= num ; i++) { 
+            fact *=i;
+            
+          }
+    console.log("The factorial of "+ num +" is " + fact) ;
+
+        }
+     });
+
+  } else if (choice==="3"){
+
+        console.log("Exit program...  Goodbye"); 
+        rl.close();
+
+    } else {
+     console.log("Invalid Choice. Try Again") ;
+       mainMenu() ;
+
+    }
+    
+
+
+function computeFactorial() {  }
+
+console.log("Compute factorial");   
+    rl.question("Enter a number for factorial: ", (numStr) => { 
      let num = parseInt(numStr) ;
 
      if(isNaN(num) || num<0) { 
@@ -40,14 +77,30 @@ rl.question("Enter your choice (1-3)" , choice => {
         }
      });
 
-  } else if (choice==="3"){
 
-        console.log("Exit program...  Goodbye"); 
-        rl.close();
+})
+  function backtoMenu () {  
+console.log("-------") ;
+console.log("1.back to menu") ;
+console.log("2. Exit") ; 
 
-    } else {
-     console.log("Invalid Choice. Try Again") ;
+    rl.question("what would you like to do next? (1-2) : ", (BacktoMenuchoice) =>{
+        
+    }
 
+    if(BacktoMenuchoice) ==="1") { 
+    comsole.clear() ;
+    mainMenu();
+    } else if (BacktoMenuchoice === "1") {
+       console.log("Exiting program... Goodbye") ;
+       rl.close() ;
+    } else { 
+        console.log("Invalid choice. please try again") ;
+        backtoMenu() ;
     }
     
-})
+}   
+
+
+mainMenu() ;
+
