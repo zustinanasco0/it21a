@@ -6,6 +6,7 @@ input:process.stdin,
 output:process.stdout
 
 } )
+ 
 
 
 console.log("Factorial Application") ;
@@ -20,7 +21,7 @@ rl.question("Enter your choice (1-3)" , choice => {
         console.log("Hello there");
     } else if (choice=="2"){
         console.log("Compute factorial");   
-  rl.question("Enter a number for factorial:", (numStr) =>{
+  rl.question("Enter a number for factorial: ", (numStr) => { 
      let num = parseInt(numStr) ;
 
      if(isNaN(num) || num<0) { 
@@ -34,15 +35,16 @@ rl.question("Enter your choice (1-3)" , choice => {
             fact *=i;
             
           }
+    console.log("The factorial of" + num + "is" + fact) ;
 
-console.log("The factorial of" + num + "is" + fact) ;
-        
- 
+        }
      });
 
   } else if (choice==="3"){
 
-        console.log("Exit"); 
+        console.log("Exit program...  Goodbye"); 
+        rl.close();
+
     } else {
      console.log("Invalid Choice. Try Again") ;
 
