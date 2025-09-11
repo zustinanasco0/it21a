@@ -19,6 +19,8 @@ displayinfo() {
   console.log("Age: " + this.age) ;
  console.log("Occupation: " + this.occupation) ;
  console.log("----------------------------" ) ;
+
+ 
 }
 
 }
