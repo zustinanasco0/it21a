@@ -14,6 +14,15 @@ this.attack = attack ;
 gethealth() {
     return this.health ;
 
+}   
+
+getStats() {
+    console.log("\n") 
+    console.log("Name:"  + this.name)
+    console.log("Health: " + this.health)
+       console.log("Attack: " + this.attack)
+
+
 }
 
 
@@ -35,10 +44,26 @@ class Mage extends Hero {
 
 }
 
+    
+
+
 }
 
 const warrior = new Warrior("janloyd", 120, 15) ;
 warrior.useAbility() ;
+warrior.getStats() ;
+
 
 const mage = new Mage("totang talong", 80, 8, 100) ;
 mage.useAbility() ;
+mage.getStats() ; 
+
+function performAbility(hero){
+    console.log("\n") ;
+     hero.useAbility() ;
+
+
+}
+
+performAbility(warrior) ;
+performAbility(mage ) ;
