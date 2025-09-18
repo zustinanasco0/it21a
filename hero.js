@@ -5,7 +5,7 @@ constructor(name, health, attack) {
 this.name = name ;
 this.health = health ;
 this.attack = attack ;
-
+this.Items = [] ;
 
 
 }
@@ -16,6 +16,16 @@ gethealth() {
 
 }   
 
+getName(){
+
+    console.log(this.name) ;
+}
+
+getAttack(){
+
+console.log(this.attack) ;
+
+}
 getStats() {
     console.log("\n") 
     console.log("Name:"  + this.name)
@@ -25,8 +35,20 @@ getStats() {
 
 }
 
+additem (item) {
+this.Item.push(item);
 
 }
+
+
+totalAttack () {
+return this.attack + this.Items.reduce((sum,i) =>sum + i .bonusAttack, 0) ;
+
+
+}
+
+}
+
 class Warrior extends Hero {
     useAbility() {
         console.log(`${this.name} uses a powerful strike!`) ;
@@ -44,19 +66,53 @@ class Mage extends Hero {
 
 }
 
-    
+
+    }
+
+class Item{
+     constructor(name,bonusAttack){
+     this.name = name ;
+     this.bonusAttack = bonusAttack;
+
+     }
+
+
+
 
 
 }
 
+
+
+
+const sword = new Item("sword", 5) ;
+const staff = new Item ("staff", 3) ;
+
+
+
 const warrior = new Warrior("janloyd", 120, 15) ;
-warrior.useAbility() ;
-warrior.getStats() ;
+warrior.getName();
+warrior.getAttack() ;
+warrior.additem(sword) ;
+console.log(warrior.totalAttack()) ;
+warrior.additem(sword) ;
+console.log(warrior.totalAttack()) ;
+warrior.additem(sword) ;
+console.log(warrior.totalAttack()) ;
+warrior.additem(sword) ;
+console.log(warrior.totalAttack()) ;
 
 
-const mage = new Mage("totang talong", 80, 8, 100) ;
-mage.useAbility() ;
-mage.getStats() ; 
+
+
+
+//warrior.useAbility() ;
+//warrior.getStats() ;
+
+
+//const mage = new Mage("totang talong", 80, 8, 100) ;
+//mage.useAbility() ;
+//mage.getStats() ; 
 
 function performAbility(hero){
     console.log("\n") ;
@@ -65,5 +121,5 @@ function performAbility(hero){
 
 }
 
-performAbility(warrior) ;
-performAbility(mage ) ;
+//performAbility(warrior) ;
+//performAbility(mage ) ;
