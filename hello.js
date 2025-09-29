@@ -105,3 +105,60 @@
 
 // Using the function
 // console.log(greet(name));
+
+
+
+// ___________________________________________________________________________
+
+//  OOP Principles in JavaScript
+
+// Base Class (Encapsulation: properties and methods grouped together)
+class Hero {
+  constructor(name, health, attack) {
+    this.name = name;
+    this.health = health;
+    this.attack = attack;
+  }
+
+  // Method to show health
+  getHealth() {
+    return this.health;
+  }
+}
+
+// Inheritance: Warrior and Mage extend Hero
+class Warrior extends Hero {
+  useAbility() {
+    console.log(`${this.name} uses a powerful strike!`);
+  }
+}
+
+class Mage extends Hero {
+  constructor(name, health, attack, mana) {
+    super(name, health, attack); // inherit from Hero
+    this.mana = mana;
+  }
+
+  useAbility() {
+    console.log(`${this.name} casts a fireball! Mana left: ${this.mana}`);
+  }
+}
+
+// Polymorphism: different useAbility() implementations
+let hero1 = new Warrior("Aragorn", 100, 20);
+let hero2 = new Mage("Gandalf", 80, 15, 50);
+
+hero1.useAbility();  // Aragorn uses a powerful strike!
+hero2.useAbility();  // Gandalf casts a fireball! Mana left: 50
+
+// Abstraction (only showing needed details)
+console.log(hero1.getHealth()); // 100
+
+
+// Encapsulation → Properties (name, health, attack) + methods (getHealth) are inside the class.
+
+// Inheritance → Warrior and Mage inherit from Hero.
+
+// Polymorphism → Both Warrior and Mage have useAbility() but behave differently.
+
+// Abstraction → We only expose needed methods (like getHealth), hiding internal details.
