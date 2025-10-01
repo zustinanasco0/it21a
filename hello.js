@@ -162,3 +162,155 @@ console.log(hero1.getHealth()); // 100
 // Polymorphism → Both Warrior and Mage have useAbility() but behave differently.
 
 // Abstraction → We only expose needed methods (like getHealth), hiding internal details.
+
+
+
+
+
+
+
+// _____________________________________________________________________
+
+
+
+// class Car {
+//  constructor(brand, model, year) {
+//    this.brand = brand;
+//    this.model = model;
+//    this.year = year;
+//  }
+
+//  displayInfo() {
+//    console.log(`Car Brand: ${this.brand}, Model: ${this.model}, Year: ${this.year}`);
+//  }
+// }
+
+// class ElectricCar extends Car {
+//  constructor(brand, model, year, batteryCapacity) {
+//    super(brand, model, year);
+//    this.batteryCapacity = batteryCapacity; // in kWh
+//  }
+
+// }
+
+//   displayInfo() {
+   
+//      console.log(`Car Brand: ${this.brand}, Model: ${this.model}, Year: ${this.year}, Battery: ${this.batteryCapacity} kWh`);
+//   }
+
+//    charge() {
+//      console.log(`${this.brand} ${this.model} is charging...`);
+//    }
+ 
+
+
+
+// let car = new Car('Toyota', 'Corolla', 2020);
+// car.displayInfo(); // Output: Car Brand: Toyota, Model: Corolla, Year: 2020
+
+// let electricCar = new ElectricCar('Tesla', 'Model 3', 2021, 75);
+// electricCar.displayInfo();
+
+// electricCar.charge();
+
+// _____________________________________________________________________
+
+
+// === BASIC SYNTAX ===
+// let name = "Alice";    // variable
+// let age = 20;          // number
+// console.log("Hello " + name + "! You are " + age + " years old."); // printing
+
+// // === CONDITIONAL STATEMENTS ===
+// if (age < 13) {
+//     console.log("You are a child.");
+// } else if (age < 18) {
+//     console.log("You are a teenager.");
+// } else {
+//     console.log("You are an adult.");
+// }
+
+// // === FUNCTIONS ===
+// function greetUser(username) {
+//     return "Welcome, " + username + "!";
+// }
+// console.log(greetUser(name)); // calling the function
+
+// // === BASIC OOP ===
+// // Base class
+// class Person {
+//     constructor(name, age) {
+//         this.name = name;
+//         this.age = age;
+//     }
+//     introduce() {
+//         console.log(`Hi, I'm ${this.name}, and I'm ${this.age} years old.`);
+//     }
+// }
+
+// // Inheritance (Student extends Person)
+// class Student extends Person {
+//     constructor(name, age, grade) {
+//         super(name, age);  // call parent constructor
+//         this.grade = grade;
+//     }
+//     study() {
+//         console.log(`${this.name} is studying for grade ${this.grade}.`);
+//     }
+// }
+
+// // Create objects
+// let person1 = new Person("Bob", 30);
+// let student1 = new Student("Charlie", 16, 10);
+
+// // Call methods
+// person1.introduce();
+// student1.introduce(); // inherited from Person
+// student1.study();     // specific to Student
+
+
+
+// ___________________________________________________________________________________________________
+
+class Student {
+    constructor(name, age, average) {
+        this.name = name;
+        this.age = age;
+        this.average = average;
+    }
+
+    displayInfo() {
+        console.log(`Name: ${this.name}, Age: ${this.age}, Average: ${this.average}`);
+    }
+}
+
+class Passed extends Student {
+    constructor(name, age, average) {
+        super(name, age, average);
+    }
+    displayInfo() {
+        super.displayInfo();
+        console.log("Status: Passed");
+    }
+}
+
+class Failed extends Student {
+    constructor(name, age, average) {
+        super(name, age, average);
+    }
+    displayInfo() {
+        super.displayInfo();
+        console.log("Status: Failed");
+    }
+}
+
+let student1 = new Passed("Alice", 20, 85);
+let student2 = new Failed("Bob", 22, 45);
+
+student1.displayInfo();
+student2.displayInfo();
+
+
+// ____________________________________________________________________________________________________
+
+
