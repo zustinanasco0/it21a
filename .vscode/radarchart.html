@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linechart</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>Radar chart</h1>
+    <div>
+        <canvas id="radarchart"></canvas>
+    </div>
+
+</body>
+<script>
+
+
+class radarchart{
+
+    constructor (canvasId,dataUrl){
+    this.canvasId = canvasId ;
+    this.dataUrl =dataUrl ;
+    this.chart = null ;
+ 
+
+}
+
+renderChart (data) {
+const ctx = document.getElementById(this.canvasId).getContext("2") ;
+this.chart = new Chart(ctx,{
+    type : "radar"
+    data: {
+
+        labels:data.labels,
+
+        datasets : data 
+    }
+
+})
+
+
+
+}
+
+
+
+
+
+
+
+}
+
+</script>
+</html>
