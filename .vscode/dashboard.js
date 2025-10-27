@@ -11,9 +11,9 @@ class radarChart{
         this.chart = new Chart(ctx,{
             type:"radar",
             data:{
-                //Labels
+              
                 labels:data.labels,
-                //Datasets
+                
                 datasets: data.datasets
             },
             options:{
